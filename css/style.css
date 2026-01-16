@@ -1,0 +1,193 @@
+/* ============================================================================
+   ARQFORMA - ESTUDIO ARQUITECTURA
+   Paleta: Gris carbón #1f2937, Gris medio #4b5563, Blanco #ffffff, Acento principal #d97706 (ámbar), Secundario #2563eb (azul)
+   Tipos: Urbanist (headings), Inter (body)
+   ============================================================================ */
+:root {
+  --color-bg: #f8fafc;
+  --color-surface: #ffffff;
+  --color-text: #1f2937;
+  --color-text-soft: #4b5563;
+  --color-border: #e2e8f0;
+  --color-accent: #d97706;
+  --color-accent-soft: #f59e0b;
+  --color-secondary: #2563eb;
+  --color-secondary-soft: #3b82f6;
+  --radius-xs: .45rem;
+  --radius-sm: .7rem;
+  --radius: 1rem;
+  --radius-lg: 1.6rem;
+  --shadow-sm: 0 4px 12px rgba(0,0,0,.06);
+  --shadow: 0 12px 36px -6px rgba(31,41,55,.18);
+  --shadow-hover: 0 14px 46px -8px rgba(31,41,55,.28);
+  --transition: .35s cubic-bezier(.4,0,.2,1);
+  --gradient-accent: linear-gradient(135deg,#d97706,#f59e0b 55%,#2563eb);
+  --gradient-secondary: linear-gradient(135deg,#1f2937,#4b5563);
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body { font-family: 'Inter', sans-serif; background:var(--color-bg); color:var(--color-text); line-height:1.5; }
+img { display:block; max-width:100%; }
+.container { width:min(1220px,92%); margin-inline:auto; }
+a { color:inherit; text-decoration:none; }
+ul { list-style:none; }
+
+/* Utilities */
+.accent { background: var(--gradient-accent); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.btn { --btn-bg: var(--color-accent); --btn-color:#fff; display:inline-flex; align-items:center; gap:.55rem; font:600 .85rem Urbanist,sans-serif; padding:.85rem 1.25rem; border:none; border-radius: var(--radius-xs); background: var(--btn-bg); color: var(--btn-color); cursor:pointer; box-shadow: var(--shadow-sm); transition: var(--transition); }
+.btn i { font-size:.95rem; }
+.btn:hover { transform:translateY(-3px); box-shadow: var(--shadow-hover); }
+.btn--outline { background:#fff; color: var(--color-text); border:2px solid var(--color-border); }
+.btn--outline:hover { border-color: var(--color-text); }
+.btn--primary { background: var(--gradient-accent); }
+.btn--full { width:100%; justify-content:center; }
+.btn--mini { padding:.55rem .85rem; font-size:.65rem; }
+
+/* Header */
+.header { position:sticky; top:0; z-index:1000; background:var(--color-surface); box-shadow: var(--shadow-sm); transition: var(--transition); }
+.header.scrolled { box-shadow: var(--shadow); }
+.nav { display:flex; align-items:center; justify-content:space-between; padding:.85rem 0; }
+.nav__brand { display:flex; align-items:center; gap:.65rem; font:700 1.25rem Urbanist; letter-spacing:.5px; }
+.brand__logo { width:44px; height:44px; border-radius:50%; background: var(--gradient-accent); color:#fff; display:grid; place-items:center; font-size:1.2rem; }
+.nav__toggle { background:none; border:none; color: var(--color-text); font-size:1.6rem; display:none; cursor:pointer; }
+.nav__menu { display:flex; align-items:center; gap:1.15rem; font:600 .8rem Urbanist; }
+.nav__link { padding:.6rem .95rem; border-radius: var(--radius-xs); position:relative; }
+.nav__link:hover { background: var(--color-text); color:#fff; }
+.nav__link.active { background: var(--color-secondary); color:#fff; }
+.nav__cta { background: var(--color-accent); color:#fff; }
+.nav__cta:hover { background: var(--color-text); }
+
+/* Hero */
+.hero { padding:4.5rem 0 3rem; position:relative; }
+.hero__grid { display:grid; gap:3.2rem; grid-template-columns:repeat(auto-fit,minmax(310px,1fr)); align-items:center; }
+.hero__content h1 { font:800 clamp(2rem,5vw,2.9rem) Urbanist; line-height:1.15; margin-bottom:1rem; letter-spacing:-.5px; }
+.hero__content p { font-size:1rem; max-width:560px; color: var(--color-text-soft); margin-bottom:1.65rem; }
+.hero__actions { display:flex; gap:1rem; flex-wrap:wrap; margin-bottom:2rem; }
+.hero__stats { display:flex; gap:1.5rem; flex-wrap:wrap; }
+.stat { background:var(--color-surface); padding:.9rem 1.15rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); min-width:150px; position:relative; overflow:hidden; }
+.stat::before { content:""; position:absolute; inset:0; background:linear-gradient(135deg,#d97706,#2563eb); opacity:.08; }
+.stat__number { position:relative; font:700 1.65rem Urbanist; background: var(--gradient-accent); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.stat__label { position:relative; font-size:.65rem; text-transform:uppercase; letter-spacing:.5px; color: var(--color-text-soft); font-weight:600; }
+.hero__visual { position:relative; display:grid; gap:1.25rem; }
+.hero__panel { background:var(--color-surface); padding:1.4rem 1.3rem 1.15rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); position:relative; color: var(--color-text); display:flex; flex-direction:column; gap:.5rem; }
+.hero__panel--main { background:linear-gradient(135deg,#1f2937,#4b5563); color:#fff; }
+.hero__panel--secondary { background:linear-gradient(135deg,#2563eb,#1f2937); color:#fff; }
+.hero__panel i { font-size:2rem; }
+.badge-floating { position:absolute; top:-10px; right:-10px; background:#fff; padding:.75rem 1rem; display:flex; align-items:center; gap:.5rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); font-size:.7rem; font-weight:700; }
+.badge-floating i { color: var(--color-accent); }
+
+/* Section base */
+section { padding:3.5rem 0; }
+.section__header { text-align:center; margin-bottom:2.5rem; }
+.section__header h2 { font:700 clamp(1.6rem,3vw,2.2rem) Urbanist; margin-bottom:.75rem; letter-spacing:-.5px; }
+.section__header p { color: var(--color-text-soft); max-width:640px; margin-inline:auto; font-size:.95rem; }
+
+/* Portfolio */
+.portfolio__filters { display:flex; gap:.65rem; justify-content:center; flex-wrap:wrap; margin:1.4rem 0 2rem; }
+.filter-btn { background:#fff; border:1px solid var(--color-border); padding:.55rem 1rem; font:600 .7rem Urbanist; border-radius: var(--radius-xs); cursor:pointer; transition: var(--transition); letter-spacing:.5px; }
+.filter-btn.active, .filter-btn:hover { background: var(--color-text); color:#fff; border-color: var(--color-text); }
+.portfolio__grid { display:grid; gap:1.35rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+.project { background:#fff; padding:1rem 1rem .9rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:.55rem; position:relative; overflow:hidden; transition: var(--transition); }
+.project:hover { transform:translateY(-6px); box-shadow: var(--shadow-hover); }
+.project__image { height:160px; border-radius: var(--radius-sm); background: var(--gradient-secondary); display:grid; place-items:center; color:#fff; font-size:2rem; margin-bottom:.4rem; }
+.project__content h3 { font:600 1rem Urbanist; }
+.project__content p { font-size:.75rem; color: var(--color-text-soft); }
+.tag { display:inline-block; background: var(--color-accent); color:#fff; font-size:.6rem; padding:.35rem .6rem; border-radius: var(--radius-xs); font-weight:700; letter-spacing:.5px; }
+
+/* Services */
+.services__grid { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); }
+.service { background:#fff; padding:1.1rem 1.1rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:.6rem; }
+.service__icon { width:54px; height:54px; background: var(--gradient-accent); color:#fff; border-radius: var(--radius-xs); display:grid; place-items:center; font-size:1.35rem; }
+.service h3 { font:600 1rem Urbanist; }
+.service__list { display:grid; gap:.35rem; font-size:.65rem; font-weight:600; }
+.service__list li { display:flex; gap:.35rem; }
+.service__list li::before { content:'•'; color: var(--color-secondary); }
+
+/* Budget */
+.budget__grid { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); align-items:start; }
+.budget__form { background:#fff; padding:1.7rem 1.7rem 1.4rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); display:grid; gap:1rem; }
+.form__group { display:flex; flex-direction:column; gap:.35rem; position:relative; }
+.form__group.full { grid-column:1 / -1; }
+.form__group label { font:600 .7rem Urbanist; letter-spacing:.5px; text-transform:uppercase; color: var(--color-text-soft); }
+.form__group input, .form__group select, .form__group textarea { padding:.75rem .9rem; border:2px solid var(--color-border); border-radius: var(--radius-xs); background:#fff; font:600 .8rem Inter; color: var(--color-text); outline:none; transition: var(--transition); }
+.form__group input:focus, .form__group select:focus, .form__group textarea:focus { border-color: var(--color-text); box-shadow:0 0 0 3px rgba(31,41,55,.15); }
+.form__group textarea { resize:vertical; min-height:110px; }
+.form__note { font-size:.6rem; color: var(--color-text-soft); display:flex; gap:.4rem; align-items:center; }
+.form__note i { color: var(--color-secondary); }
+.budget__result { background:#fff; padding:1.7rem 1.7rem 1.4rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); position:relative; display:flex; flex-direction:column; gap:1rem; justify-content:center; }
+.result__placeholder { text-align:center; display:flex; flex-direction:column; gap:.65rem; }
+.result__placeholder i { font-size:2.2rem; color: var(--color-secondary); }
+#budgetOutput { font:700 1.1rem Urbanist; background: var(--gradient-accent); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+/* Process */
+.process__timeline { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); }
+.step { background:#fff; padding:1rem .9rem .85rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:.4rem; position:relative; }
+.step__index { width:36px; height:36px; background: var(--gradient-accent); color:#fff; border-radius:50%; display:grid; place-items:center; font:700 .85rem Urbanist; }
+.step h3 { font:600 .9rem Urbanist; }
+.step p { font-size:.65rem; color: var(--color-text-soft); }
+
+/* Testimonials */
+.testimonials__grid { display:grid; gap:1.25rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
+.testimonial { background:#fff; padding:1.2rem 1.1rem 1rem; border-radius: var(--radius); box-shadow: var(--shadow-sm); border:1px solid var(--color-border); display:flex; flex-direction:column; gap:.55rem; }
+.testimonial__header { display:flex; align-items:center; gap:.6rem; }
+.avatar { width:46px; height:46px; background: var(--gradient-accent); color:#fff; border-radius:50%; display:grid; place-items:center; font-size:1.1rem; }
+.testimonial h4 { font:600 .9rem Urbanist; }
+.stars { margin-left:auto; font-size:.65rem; color:#fbbf24; }
+.testimonial p { font-size:.7rem; color: var(--color-text-soft); }
+
+/* Contact */
+.contact__grid { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); align-items:start; }
+.contact__form { background:#fff; padding:1.7rem 1.7rem 1.4rem; border-radius: var(--radius-lg); box-shadow: var(--shadow); display:grid; gap:1rem; }
+.contact__form h3 { font:700 1.2rem Urbanist; }
+.contact__info { background:#fff; padding:1.7rem 1.7rem 1.4rem; border-radius: var(--radius-lg); box-shadow: var(--shadow-sm); display:flex; flex-direction:column; gap:.8rem; }
+.contact__method { display:flex; align-items:center; gap:.6rem; background: var(--color-bg); padding:.65rem .85rem; border-radius: var(--radius-xs); font:600 .7rem Urbanist; color: var(--color-text-soft); }
+.contact__method i { color: var(--color-accent); }
+.contact__social { display:flex; gap:.6rem; margin-top:.4rem; }
+.contact__social a { width:40px; height:40px; display:grid; place-items:center; background: var(--gradient-accent); color:#fff; border-radius:50%; font-size:.9rem; box-shadow: var(--shadow-sm); }
+.contact__badge { margin-top:.75rem; font:600 .6rem Urbanist; display:inline-flex; gap:.5rem; align-items:center; background:#fff; border:2px solid var(--color-border); padding:.5rem .75rem; border-radius: var(--radius-xs); }
+.contact__badge i { color: var(--color-secondary); }
+
+/* Footer */
+.footer { background:#1f2937; color:#fff; padding:3rem 0 1.25rem; margin-top:2rem; position:relative; }
+.footer__grid { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); margin-bottom:2rem; }
+.footer__brand { display:flex; flex-direction:column; gap:.6rem; }
+.footer__brand .brand__logo { width:52px; height:52px; background:#fff; color:#1f2937; border-radius:50%; display:grid; place-items:center; font-size:1.35rem; }
+.footer__brand p { font-size:.75rem; color:#e2e8f0; }
+.footer__links h4, .footer__extra h4 { font:700 .8rem Urbanist; margin-bottom:.65rem; }
+.footer__links ul { display:grid; gap:.4rem; }
+.footer__links a { font-size:.65rem; color:#e2e8f0; }
+.footer__links a:hover { color:#fff; }
+.badges { display:flex; gap:.45rem; flex-wrap:wrap; }
+.badge { background:#fff; color:#1f2937; padding:.35rem .6rem; font-size:.55rem; font-weight:700; border-radius: var(--radius-xs); letter-spacing:.5px; }
+.footer__bottom { border-top:1px solid rgba(255,255,255,.15); padding-top:1rem; font-size:.65rem; text-align:center; }
+
+/* Floating */
+.scroll-top { position:fixed; bottom:95px; right:20px; width:48px; height:48px; background: var(--gradient-accent); color:#fff; border:none; border-radius:50%; display:grid; place-items:center; font-size:1.1rem; cursor:pointer; box-shadow: var(--shadow); opacity:0; visibility:hidden; transition: var(--transition); z-index:900; }
+.scroll-top.show { opacity:1; visibility:visible; }
+.whatsapp-float { position:fixed; bottom:30px; right:20px; width:54px; height:54px; background:#25D366; color:#fff; border-radius:50%; display:grid; place-items:center; font-size:1.4rem; box-shadow:0 8px 25px rgba(37,211,102,.35); z-index:900; }
+
+/* Forms generic */
+.contact__form .form__group label { font:600 .7rem Urbanist; letter-spacing:.5px; text-transform:uppercase; color: var(--color-text-soft); }
+.contact__form .form__group input, .contact__form .form__group select, .contact__form .form__group textarea { padding:.75rem .9rem; border:2px solid var(--color-border); border-radius: var(--radius-xs); background:#fff; font:600 .75rem Inter; color: var(--color-text); outline:none; transition: var(--transition); }
+.contact__form .form__group input:focus, .contact__form .form__group select:focus, .contact__form .form__group textarea:focus { border-color: var(--color-text); box-shadow:0 0 0 3px rgba(31,41,55,.15); }
+.contact__form .form__group textarea { resize:vertical; min-height:110px; }
+.form__group .field-error { color:#dc2626; font-size:.55rem; margin-top:.25rem; font-weight:600; }
+input.error, select.error, textarea.error { border-color:#dc2626 !important; box-shadow:0 0 0 3px rgba(220,38,38,.15) !important; }
+
+/* Animations */
+.project, .service, .testimonial, .step, .budget__form, .budget__result { opacity:0; transform:translateY(25px); }
+.project.animate, .service.animate, .testimonial.animate, .step.animate, .budget__form.animate, .budget__result.animate { opacity:1; transform:translateY(0); transition:.6s ease; }
+
+/* Responsive Nav */
+@media (max-width:860px){
+  .nav__toggle { display:block; }
+  .nav__menu { position:fixed; inset:0 0 0 auto; width:260px; background:#fff; flex-direction:column; align-items:flex-start; padding:4.5rem 1.25rem 2rem; gap:.4rem; transform:translateX(100%); transition: var(--transition); box-shadow: var(--shadow); }
+  .nav__menu.active { transform:translateX(0); }
+  .nav__link { width:100%; }
+}
+
+@media (max-width:600px){
+  .hero__stats { justify-content:center; }
+  .budget__form { padding:1.3rem 1.3rem 1.1rem; }
+  .contact__form, .contact__info { padding:1.3rem 1.3rem 1.1rem; }
+}
